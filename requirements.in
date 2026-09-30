@@ -1,0 +1,23 @@
+# Datos
+pandas
+numpy
+openpyxl        # leer Excel (el corpus de Posadas-Durán)
+pyyaml          # leer params.yaml
+kaggle          # descargar datasets de Kaggle
+dvc             # versionar datos y modelos
+
+# Preprocesamiento y baseline
+nltk
+scikit-learn
+
+# Deep learning (BETO)
+torch
+transformers
+
+# Exploración y gráficas
+jupyter
+matplotlib
+seaborn
+
+# Pruebas
+pytest
