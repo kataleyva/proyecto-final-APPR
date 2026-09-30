@@ -1,0 +1,27 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datos y modelos: los versiona DVC, no Git
+data/raw/*
+data/interim/*
+data/processed/*
+models/*
+!data/**/.gitkeep
+!models/.gitkeep
+
+# Credenciales (nunca se suben)
+.env
+kaggle.json
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
