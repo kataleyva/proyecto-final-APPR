@@ -8,13 +8,7 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Datos y modelos: los versiona DVC, no Git
-data/raw/*
-data/interim/*
-data/processed/*
-models/*
-!data/**/.gitkeep
-!models/.gitkeep
+# Datos y modelos: los versiona DVC
 
 # Credenciales (nunca se suben)
 .env
