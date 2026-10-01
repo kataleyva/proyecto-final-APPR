@@ -1,0 +1,13 @@
+md5: 68647cc61be79b98e500197179682473
+frozen: true
+deps:
+- checksum: '"12c856fc2ea98cd2a0514768b9f2f786583d4862fa18450f2d17599107b048a9"'
+  size: 362324
+  hash: md5
+  path: 
+    https://raw.githubusercontent.com/jpposadas/FakeNewsCorpusSpanish/master/development.xlsx
+outs:
+- md5: 56a2afbcdbe49207a958aec14dc0f2bb
+  size: 362324
+  hash: md5
+  path: development.xlsx

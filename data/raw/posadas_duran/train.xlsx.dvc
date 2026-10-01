@@ -1,0 +1,13 @@
+md5: 0b623e1f2c76590fcaac938abcade038
+frozen: true
+deps:
+- checksum: '"28c66512555f5cf8232019cb85e32b8372ab600bb2f486366f5d561c38e3757a"'
+  size: 748241
+  hash: md5
+  path: 
+    https://raw.githubusercontent.com/jpposadas/FakeNewsCorpusSpanish/master/train.xlsx
+outs:
+- md5: bc223bb5f28e71b5a7f317af7bfe88c4
+  size: 748241
+  hash: md5
+  path: train.xlsx
