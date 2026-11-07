@@ -1,0 +1,5 @@
+outs:
+- md5: b81518ca8afcda48471bdc57ca89cc82
+  size: 149938715
+  hash: md5
+  path: noticias_unidas_local.csv
