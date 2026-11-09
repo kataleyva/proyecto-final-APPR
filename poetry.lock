@@ -5410,6 +5410,18 @@ files = [
 diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
+name = "pyspellchecker"
+version = "0.9.1"
+description = "Pure python spell checker based on work by Peter Norvig"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "pyspellchecker-0.9.1-py3-none-any.whl", hash = "sha256:c79b144b4bad20024bf489ad3ffd96b76f3f53439e9fa59ac607896352852f3d"},
+    {file = "pyspellchecker-0.9.1.tar.gz", hash = "sha256:786c21f082d4059b139bca922cd6db6c85c800374b904b59a8f61d75a0a62d7f"},
+]
+
+[[package]]
 name = "pytest"
 version = "9.2.0"
 description = "pytest: simple powerful testing with Python"
@@ -7321,4 +7333,4 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "794c65662440a284403a49ebeb108634acffaa659cc05d02e6d58e192ac78457"
+content-hash = "7d8cbd47185a0e0d39ebbfd3b448946f18ed05d010f9e02e0b8a81b150508a12"
