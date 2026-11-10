@@ -1,0 +1,200 @@
+{
+  "filas_entrada": 54376,
+  "antes_de_limpiar": {
+    "vacios_o_cortos": 667,
+    "duplicados": 5902,
+    "duplicados_con_label_distinto": 0
+  },
+  "pasos": {
+    "reparar_codificacion": {
+      "docs_modificados": 202,
+      "caracteres_netos_quitados": 8849,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 0,
+        "bisaillon_1": 118,
+        "posadas_v1_0": 0,
+        "posadas_v1_1": 0,
+        "posadas_v2_0": 0,
+        "posadas_v2_1": 0,
+        "tretiakov_0": 0,
+        "tretiakov_1": 0,
+        "ukani_0": 9,
+        "ukani_1": 75
+      }
+    },
+    "normalizar_unicode": {
+      "docs_modificados": 8156,
+      "caracteres_netos_quitados": 826,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 1129,
+        "bisaillon_1": 1,
+        "posadas_v1_0": 488,
+        "posadas_v1_1": 471,
+        "posadas_v2_0": 267,
+        "posadas_v2_1": 266,
+        "tretiakov_0": 0,
+        "tretiakov_1": 4,
+        "ukani_0": 2917,
+        "ukani_1": 2613
+      }
+    },
+    "reparar_homoglifos": {
+      "docs_modificados": 17,
+      "caracteres_netos_quitados": 0,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 0,
+        "bisaillon_1": 0,
+        "posadas_v1_0": 0,
+        "posadas_v1_1": 9,
+        "posadas_v2_0": 0,
+        "posadas_v2_1": 0,
+        "tretiakov_0": 0,
+        "tretiakov_1": 7,
+        "ukani_0": 1,
+        "ukani_1": 0
+      }
+    },
+    "quitar_huellas_fuente": {
+      "docs_modificados": 30196,
+      "caracteres_netos_quitados": 865589,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 21024,
+        "bisaillon_1": 9018,
+        "posadas_v1_0": 0,
+        "posadas_v1_1": 0,
+        "posadas_v2_0": 0,
+        "posadas_v2_1": 1,
+        "tretiakov_0": 0,
+        "tretiakov_1": 0,
+        "ukani_0": 12,
+        "ukani_1": 141
+      }
+    },
+    "quitar_urls": {
+      "docs_modificados": 5199,
+      "caracteres_netos_quitados": 293298,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 469,
+        "bisaillon_1": 4270,
+        "posadas_v1_0": 0,
+        "posadas_v1_1": 0,
+        "posadas_v2_0": 3,
+        "posadas_v2_1": 5,
+        "tretiakov_0": 3,
+        "tretiakov_1": 0,
+        "ukani_0": 27,
+        "ukani_1": 422
+      }
+    },
+    "separar_frases_pegadas": {
+      "docs_modificados": 16480,
+      "caracteres_netos_quitados": -98016,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 220,
+        "bisaillon_1": 15882,
+        "posadas_v1_0": 18,
+        "posadas_v1_1": 4,
+        "posadas_v2_0": 11,
+        "posadas_v2_1": 19,
+        "tretiakov_0": 13,
+        "tretiakov_1": 11,
+        "ukani_0": 58,
+        "ukani_1": 244
+      }
+    },
+    "quitar_emojis_y_simbolos": {
+      "docs_modificados": 392,
+      "caracteres_netos_quitados": 0,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 4,
+        "bisaillon_1": 0,
+        "posadas_v1_0": 8,
+        "posadas_v1_1": 10,
+        "posadas_v2_0": 5,
+        "posadas_v2_1": 15,
+        "tretiakov_0": 0,
+        "tretiakov_1": 2,
+        "ukani_0": 46,
+        "ukani_1": 302
+      }
+    },
+    "quitar_otros_alfabetos": {
+      "docs_modificados": 20,
+      "caracteres_netos_quitados": 2141,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 1,
+        "bisaillon_1": 0,
+        "posadas_v1_0": 0,
+        "posadas_v1_1": 2,
+        "posadas_v2_0": 0,
+        "posadas_v2_1": 1,
+        "tretiakov_0": 0,
+        "tretiakov_1": 3,
+        "ukani_0": 1,
+        "ukani_1": 12
+      }
+    },
+    "unificar_numeros": {
+      "docs_modificados": 37787,
+      "caracteres_netos_quitados": -1430764,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 17080,
+        "bisaillon_1": 13989,
+        "posadas_v1_0": 27,
+        "posadas_v1_1": 8,
+        "posadas_v2_0": 274,
+        "posadas_v2_1": 253,
+        "tretiakov_0": 326,
+        "tretiakov_1": 278,
+        "ukani_0": 2761,
+        "ukani_1": 2791
+      }
+    },
+    "normalizar_espacios": {
+      "docs_modificados": 46322,
+      "caracteres_netos_quitados": 755849,
+      "docs_modificados_por_fuente_label": {
+        "bisaillon_0": 21188,
+        "bisaillon_1": 17169,
+        "posadas_v1_0": 488,
+        "posadas_v1_1": 472,
+        "posadas_v2_0": 282,
+        "posadas_v2_1": 275,
+        "tretiakov_0": 396,
+        "tretiakov_1": 187,
+        "ukani_0": 2906,
+        "ukani_1": 2959
+      }
+    }
+  },
+  "despues_de_limpiar": {
+    "vacios_o_cortos": 83,
+    "duplicados": 19,
+    "duplicados_con_label_distinto": 0
+  },
+  "tretiakov_quitadas_de_posadas_v2": 18,
+  "validacion": {
+    "emojis": 0,
+    "controles_c1": 0,
+    "mojibake_utf8": 0,
+    "homoglifos_es": 0,
+    "urls": 0,
+    "entidades_html": 0,
+    "vacios": 0,
+    "duplicados": 0,
+    "labels_validos": true
+  },
+  "filas_salida": 47687,
+  "filas_por_fuente_label": {
+    "bisaillon_0": 21189,
+    "bisaillon_1": 17368,
+    "posadas_v1_0": 489,
+    "posadas_v1_1": 477,
+    "posadas_v2_0": 286,
+    "posadas_v2_1": 268,
+    "tretiakov_0": 793,
+    "tretiakov_1": 772,
+    "ukani_0": 2989,
+    "ukani_1": 3056
+  }
+}

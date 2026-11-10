@@ -1,0 +1,13 @@
+stages:
+  limpieza:
+    cmd: python -m src.data.limpieza
+    deps:
+      - src/data/limpieza.py
+      - data/interim/noticias_unidas_local.csv
+    params:
+      - limpieza
+    outs:
+      - data/processed/noticias_limpias.csv
+    metrics:
+      - reports/limpieza_reporte.json:
+          cache: false

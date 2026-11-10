@@ -1,0 +1,18 @@
+limpieza:
+  entrada: data/interim/noticias_unidas_local.csv
+  salida: data/processed/noticias_limpias.csv
+  reporte: reports/limpieza_reporte.json
+  min_caracteres: 20                 # textos más cortos que esto después de limpiar se descartan
+  conservar_texto_original: false    # true = guarda también la columna "texto" para comparar
+  quitar_tretiakov_de_posadas_v2: true
+  pasos:                             # false = apagar ese paso
+    reparar_codificacion: true
+    normalizar_unicode: true
+    reparar_homoglifos: true
+    quitar_huellas_fuente: true
+    quitar_urls: true
+    separar_frases_pegadas: true
+    quitar_emojis_y_simbolos: true
+    quitar_otros_alfabetos: true
+    unificar_numeros: true
+    normalizar_espacios: true

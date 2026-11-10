@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  limpieza:
+    cmd: python -m src.data.limpieza
+    deps:
+    - path: data/interim/noticias_unidas_local.csv
+      hash: md5
+      md5: b81518ca8afcda48471bdc57ca89cc82
+      size: 149938715
+    - path: src/data/limpieza.py
+      hash: md5
+      md5: 18812f61aaab12bf9cc971cd8a2254e8
+      size: 13263
+    params:
+      params.yaml:
+        limpieza:
+          entrada: data/interim/noticias_unidas_local.csv
+          salida: data/processed/noticias_limpias.csv
+          reporte: reports/limpieza_reporte.json
+          min_caracteres: 20
+          conservar_texto_original: false
+          quitar_tretiakov_de_posadas_v2: true
+          pasos:
+            reparar_codificacion: true
+            normalizar_unicode: true
+            reparar_homoglifos: true
+            quitar_huellas_fuente: true
+            quitar_urls: true
+            separar_frases_pegadas: true
+            quitar_emojis_y_simbolos: true
+            quitar_otros_alfabetos: true
+            unificar_numeros: true
+            normalizar_espacios: true
+    outs:
+    - path: data/processed/noticias_limpias.csv
+      hash: md5
+      md5: f8b1895ae6599c8d1f466809af43f710
+      size: 132764851
+    - path: reports/limpieza_reporte.json
+      hash: md5
+      md5: ae41cd86fec0eb53148fd998b4ab763d
+      size: 5323
