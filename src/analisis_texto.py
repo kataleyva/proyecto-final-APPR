@@ -391,3 +391,40 @@ class AnalizadorOrtografia:
             stats, _ = self.analizar(grupo, idioma, top=0)
             filas.append({"label": etiqueta, **stats})
         return pd.DataFrame(filas).set_index("label")
+
+def z_por_fuente(df, idioma, min_df=20, excluir_fuentes=("posadas_v2",), z_fuerte=3.0, z_debil=1.0):
+    """z (log odds ratio / error estándar) de cada palabra, calculado DENTRO de cada fuente."""
+    d = df[(df["idioma"] == idioma) & ~df["fuente"].isin(excluir_fuentes)]
+    vectorizador = CountVectorizer(binary=True, lowercase=True, min_df=min_df,
+                                   token_pattern=r"(?u)\b[^\W\d_]{2,}\b")
+    X = vectorizador.fit_transform(d["texto"]).tocsr()
+    palabras = vectorizador.get_feature_names_out()
+    y, fuentes = d["label"].to_numpy(), d["fuente"].to_numpy()
+    tabla = pd.DataFrame({"palabra": palabras})
+    for f in np.unique(fuentes):
+        m = fuentes == f
+        n1, n0 = (y[m] == 1).sum(), (y[m] == 0).sum()
+        if n1 == 0 or n0 == 0:          # la fuente necesita las dos clases
+            continue
+        c1 = np.asarray(X[m & (y == 1)].sum(0)).ravel()
+        c0 = np.asarray(X[m & (y == 0)].sum(0)).ravel()
+        lor = np.log((c1 + .5) / (n1 - c1 + .5)) - np.log((c0 + .5) / (n0 - c0 + .5))
+        se = np.sqrt(1/(c1+.5) + 1/(n1-c1+.5) + 1/(c0+.5) + 1/(n0-c0+.5))
+        tabla[f"z_{f}"] = (lor / se).round(2)
+        tabla[f"docs_{f}"] = c1 + c0
+    cols_z = [c for c in tabla if c.startswith("z_")]
+    Z = tabla[cols_z]
+    fuertes = (Z.abs() >= z_fuerte).sum(axis=1)
+    misma_direccion = (np.sign(Z).nunique(axis=1) == 1)
+    D = tabla[[c for c in tabla if c.startswith("docs_")]]
+    ausente = (D < min_df).any(axis=1)          # en alguna fuente casi no aparece: no se puede comparar
+    tabla["tipo"] = np.select(
+        [(fuertes >= 1) & ausente,
+         (fuertes == len(cols_z)) & misma_direccion,
+         (fuertes >= 1) & (Z.abs().min(axis=1) < z_debil),
+         (fuertes >= 1) & ~misma_direccion],
+        ["exclusiva_de_una_fuente", "consistente", "solo_separa_en_una_fuente", "contradictoria"],
+        default="debil")
+    tabla["z_min_abs"] = Z.abs().min(axis=1)
+    tabla["z_max_abs"] = Z.abs().max(axis=1)
+    return tabla.sort_values("z_max_abs", ascending=False).reset_index(drop=True)
