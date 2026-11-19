@@ -1,0 +1,115 @@
+{
+  "modelo": "rf_tfidf",
+  "variante": "sin_limpieza",
+  "n_documentos": 2571,
+  "vocabulario": 35158,
+  "accuracy_media": 0.7755,
+  "accuracy_std": 0.0168,
+  "precision_media": 0.7582,
+  "precision_std": 0.0453,
+  "recall_media": 0.8149,
+  "recall_std": 0.0511,
+  "f1_media": 0.7833,
+  "f1_std": 0.015,
+  "acierto_falsas_media": 0.8149,
+  "acierto_falsas_std": 0.0511,
+  "acierto_reales_media": 0.7397,
+  "acierto_reales_std": 0.0573,
+  "por_semilla": {
+    "semilla_0": {
+      "accuracy": 0.7845,
+      "precision": 0.7474,
+      "recall": 0.8555,
+      "f1": 0.7978,
+      "acierto_falsas": 0.8555,
+      "acierto_reales": 0.7143,
+      "matriz_confusion": {
+        "tn": 185,
+        "fp": 74,
+        "fn": 37,
+        "tp": 219
+      },
+      "accuracy_validacion": 0.7631,
+      "std_validacion": 0.0313,
+      "n_train": 2056,
+      "n_test": 515,
+      "test_repetidos_en_train": 14
+    },
+    "semilla_1": {
+      "accuracy": 0.7728,
+      "precision": 0.8047,
+      "recall": 0.7546,
+      "f1": 0.7788,
+      "acierto_falsas": 0.7546,
+      "acierto_reales": 0.7934,
+      "matriz_confusion": {
+        "tn": 192,
+        "fp": 50,
+        "fn": 67,
+        "tp": 206
+      },
+      "accuracy_validacion": 0.7704,
+      "std_validacion": 0.0243,
+      "n_train": 2056,
+      "n_test": 515,
+      "test_repetidos_en_train": 14
+    },
+    "semilla_2": {
+      "accuracy": 0.7476,
+      "precision": 0.697,
+      "recall": 0.8381,
+      "f1": 0.761,
+      "acierto_falsas": 0.8381,
+      "acierto_reales": 0.6642,
+      "matriz_confusion": {
+        "tn": 178,
+        "fp": 90,
+        "fn": 40,
+        "tp": 207
+      },
+      "accuracy_validacion": 0.7408,
+      "std_validacion": 0.0314,
+      "n_train": 2056,
+      "n_test": 515,
+      "test_repetidos_en_train": 12
+    },
+    "semilla_3": {
+      "accuracy": 0.7825,
+      "precision": 0.8016,
+      "recall": 0.7652,
+      "f1": 0.7829,
+      "acierto_falsas": 0.7652,
+      "acierto_reales": 0.8008,
+      "matriz_confusion": {
+        "tn": 201,
+        "fp": 50,
+        "fn": 62,
+        "tp": 202
+      },
+      "accuracy_validacion": 0.7587,
+      "std_validacion": 0.0109,
+      "n_train": 2056,
+      "n_test": 515,
+      "test_repetidos_en_train": 12
+    },
+    "semilla_4": {
+      "accuracy": 0.7903,
+      "precision": 0.7404,
+      "recall": 0.8612,
+      "f1": 0.7962,
+      "acierto_falsas": 0.8612,
+      "acierto_reales": 0.7259,
+      "matriz_confusion": {
+        "tn": 196,
+        "fp": 74,
+        "fn": 34,
+        "tp": 211
+      },
+      "accuracy_validacion": 0.7519,
+      "std_validacion": 0.0079,
+      "n_train": 2056,
+      "n_test": 515,
+      "test_repetidos_en_train": 14
+    }
+  }
+}

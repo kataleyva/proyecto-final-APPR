@@ -1,0 +1,114 @@
+{
+  "modelo": "beto_lstm",
+  "variante": "sin_limpieza",
+  "n_documentos": 2571,
+  "accuracy_media": 0.7612,
+  "accuracy_std": 0.0269,
+  "precision_media": 0.7897,
+  "precision_std": 0.033,
+  "recall_media": 0.7244,
+  "recall_std": 0.0342,
+  "f1_media": 0.7549,
+  "f1_std": 0.0223,
+  "acierto_falsas_media": 0.7244,
+  "acierto_falsas_std": 0.0342,
+  "acierto_reales_media": 0.7959,
+  "acierto_reales_std": 0.0602,
+  "por_semilla": {
+    "semilla_0": {
+      "accuracy": 0.7403,
+      "precision": 0.75,
+      "recall": 0.7444,
+      "f1": 0.7472,
+      "acierto_falsas": 0.7444,
+      "acierto_reales": 0.736,
+      "matriz_confusion": {
+        "tn": 92,
+        "fp": 33,
+        "fn": 34,
+        "tp": 99
+      },
+      "loss_train_final": 0.2325,
+      "accuracy_train_final": 0.914,
+      "n_train": 2313,
+      "n_test": 258,
+      "test_repetidos_en_train": 7
+    },
+    "semilla_1": {
+      "accuracy": 0.7403,
+      "precision": 0.7664,
+      "recall": 0.75,
+      "f1": 0.7581,
+      "acierto_falsas": 0.75,
+      "acierto_reales": 0.7288,
+      "matriz_confusion": {
+        "tn": 86,
+        "fp": 32,
+        "fn": 35,
+        "tp": 105
+      },
+      "loss_train_final": 0.1585,
+      "accuracy_train_final": 0.9494,
+      "n_train": 2313,
+      "n_test": 258,
+      "test_repetidos_en_train": 9
+    },
+    "semilla_2": {
+      "accuracy": 0.7597,
+      "precision": 0.7864,
+      "recall": 0.6694,
+      "f1": 0.7232,
+      "acierto_falsas": 0.6694,
+      "acierto_reales": 0.8394,
+      "matriz_confusion": {
+        "tn": 115,
+        "fp": 22,
+        "fn": 40,
+        "tp": 81
+      },
+      "loss_train_final": 0.1983,
+      "accuracy_train_final": 0.9256,
+      "n_train": 2313,
+      "n_test": 258,
+      "test_repetidos_en_train": 12
+    },
+    "semilla_3": {
+      "accuracy": 0.7597,
+      "precision": 0.8182,
+      "recall": 0.7122,
+      "f1": 0.7615,
+      "acierto_falsas": 0.7122,
+      "acierto_reales": 0.8151,
+      "matriz_confusion": {
+        "tn": 97,
+        "fp": 22,
+        "fn": 40,
+        "tp": 99
+      },
+      "loss_train_final": 0.2621,
+      "accuracy_train_final": 0.898,
+      "n_train": 2313,
+      "n_test": 258,
+      "test_repetidos_en_train": 4
+    },
+    "semilla_4": {
+      "accuracy": 0.8062,
+      "precision": 0.8273,
+      "recall": 0.7459,
+      "f1": 0.7845,
+      "acierto_falsas": 0.7459,
+      "acierto_reales": 0.8603,
+      "matriz_confusion": {
+        "tn": 117,
+        "fp": 19,
+        "fn": 31,
+        "tp": 91
+      },
+      "loss_train_final": 0.1875,
+      "accuracy_train_final": 0.9369,
+      "n_train": 2313,
+      "n_test": 258,
+      "test_repetidos_en_train": 8
+    }
+  }
+}

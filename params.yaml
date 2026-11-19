@@ -16,3 +16,41 @@ limpieza:
     quitar_otros_alfabetos: true
     unificar_numeros: true
     normalizar_espacios: true
+
+replica:
+  uso: replica                       # filas con uso == "replica": Posadas-Durán v1.0 (971) + Tretiakov train (1600)
+  semillas: [0, 1, 2, 3, 4]          # los autores usaron random_state = 0..4 en el bucle final de BETO.ipynb
+  carpeta_reportes: reports/replica
+  variantes:
+    sin_limpieza:                    # exactamente los textos de los autores
+      archivo: data/interim/noticias_unidas_local.csv
+      columna_texto: texto
+    con_limpieza:                    # los mismos documentos después de nuestro pipeline de limpieza
+      archivo: data/processed/noticias_limpias.csv
+      columna_texto: texto_limpio
+  preprocesamiento:                  # el del artículo, igual para las dos variantes
+    quitar_stopwords: true
+    stemming: false
+    idioma: spanish
+  rf:                                # classic_ML.ipynb: mejor configuración (0,802)
+    test_size: 0.2
+    vocabulario: 40000
+    max_df: 0.9
+    min_df: 1                        # los autores pusieron 0; sklearn nuevo exige >= 1 y da el mismo resultado
+    n_estimators: 500
+    max_features: 50
+    cv_iteraciones: 5
+    cv_test_size: 0.2
+  beto:                              # BETO.ipynb
+    modelo: dccuchile/bert-base-spanish-wwm-uncased
+    max_tokens: 150
+    lote: 16                         # solo afecta la velocidad, no el resultado
+    guardar_float16: true            # la mitad de espacio en disco (~600 MB por variante)
+    carpeta_embeddings: data/processed/embeddings_beto
+  lstm:                              # create_model_RNN + bucle final de BETO.ipynb
+    test_size: 0.1
+    unidades: 8
+    dropout: 0.5
+    epocas: 25
+    batch_size: 32
+    lr: 0.001

@@ -40,3 +40,303 @@ stages:
       hash: md5
       md5: ae41cd86fec0eb53148fd998b4ab763d
       size: 5323
+  rf_articulo@con_limpieza:
+    cmd: python -m src.models.rf_articulo --variante con_limpieza
+    deps:
+    - path: data/processed/noticias_limpias.csv
+      hash: md5
+      md5: f8b1895ae6599c8d1f466809af43f710
+      size: 132764851
+    - path: src/data/replica.py
+      hash: md5
+      md5: c1da641fd46eb755a4bd388601beb4c6
+      size: 1621
+    - path: src/evaluation/metricas.py
+      hash: md5
+      md5: 2b7d0bd5e4be1bd0b66855ea0439fe81
+      size: 2013
+    - path: src/features/preprocesamiento_articulo.py
+      hash: md5
+      md5: 589f2bd3df8db86365c3853b01e630d9
+      size: 2381
+    - path: src/models/rf_articulo.py
+      hash: md5
+      md5: b502914ae0c4c6f14aac7ba21a1d45da
+      size: 4290
+    params:
+      params.yaml:
+        replica.preprocesamiento:
+          quitar_stopwords: true
+          stemming: false
+          idioma: spanish
+        replica.rf:
+          test_size: 0.2
+          vocabulario: 40000
+          max_df: 0.9
+          min_df: 1
+          n_estimators: 500
+          max_features: 50
+          cv_iteraciones: 5
+          cv_test_size: 0.2
+        replica.semillas:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        replica.uso: replica
+    outs:
+    - path: reports/replica/predicciones_rf_con_limpieza.csv
+      hash: md5
+      md5: 187256de229fc52f53750fcef22676e2
+      size: 90738
+    - path: reports/replica/rf_con_limpieza.json
+      hash: md5
+      md5: dffe7304de96e2328da2cfc5b048375e
+      size: 2787
+  rf_articulo@sin_limpieza:
+    cmd: python -m src.models.rf_articulo --variante sin_limpieza
+    deps:
+    - path: data/interim/noticias_unidas_local.csv
+      hash: md5
+      md5: b81518ca8afcda48471bdc57ca89cc82
+      size: 149938715
+    - path: src/data/replica.py
+      hash: md5
+      md5: c1da641fd46eb755a4bd388601beb4c6
+      size: 1621
+    - path: src/evaluation/metricas.py
+      hash: md5
+      md5: 2b7d0bd5e4be1bd0b66855ea0439fe81
+      size: 2013
+    - path: src/features/preprocesamiento_articulo.py
+      hash: md5
+      md5: 589f2bd3df8db86365c3853b01e630d9
+      size: 2381
+    - path: src/models/rf_articulo.py
+      hash: md5
+      md5: b502914ae0c4c6f14aac7ba21a1d45da
+      size: 4290
+    params:
+      params.yaml:
+        replica.preprocesamiento:
+          quitar_stopwords: true
+          stemming: false
+          idioma: spanish
+        replica.rf:
+          test_size: 0.2
+          vocabulario: 40000
+          max_df: 0.9
+          min_df: 1
+          n_estimators: 500
+          max_features: 50
+          cv_iteraciones: 5
+          cv_test_size: 0.2
+        replica.semillas:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        replica.uso: replica
+    outs:
+    - path: reports/replica/predicciones_rf_sin_limpieza.csv
+      hash: md5
+      md5: eb49e3c7c332ec5747c6ab1d434dd87d
+      size: 92069
+    - path: reports/replica/rf_sin_limpieza.json
+      hash: md5
+      md5: 3176910ccc4e9235698685e3c1fc596a
+      size: 2802
+  embeddings_beto@sin_limpieza:
+    cmd: python -m src.features.embeddings_beto --variante sin_limpieza
+    deps:
+    - path: data/interim/noticias_unidas_local.csv
+      hash: md5
+      md5: b81518ca8afcda48471bdc57ca89cc82
+      size: 149938715
+    - path: src/data/replica.py
+      hash: md5
+      md5: c1da641fd46eb755a4bd388601beb4c6
+      size: 1621
+    - path: src/features/embeddings_beto.py
+      hash: md5
+      md5: 76c449eb32ef78152adae76e14dd4f91
+      size: 5740
+    - path: src/features/preprocesamiento_articulo.py
+      hash: md5
+      md5: 589f2bd3df8db86365c3853b01e630d9
+      size: 2381
+    params:
+      params.yaml:
+        replica.beto:
+          modelo: dccuchile/bert-base-spanish-wwm-uncased
+          max_tokens: 150
+          lote: 16
+          guardar_float16: true
+          carpeta_embeddings: data/processed/embeddings_beto
+        replica.preprocesamiento:
+          quitar_stopwords: true
+          stemming: false
+          idioma: spanish
+        replica.uso: replica
+    outs:
+    - path: data/processed/embeddings_beto/sin_limpieza.npz
+      hash: md5
+      md5: e5a08bb08b3926c9a31501b1b12482b6
+      size: 751103196
+    - path: data/processed/embeddings_beto/sin_limpieza_info.json
+      hash: md5
+      md5: 7998e1772be56e91ca170821848cebea
+      size: 212
+  embeddings_beto@con_limpieza:
+    cmd: python -m src.features.embeddings_beto --variante con_limpieza
+    deps:
+    - path: data/processed/noticias_limpias.csv
+      hash: md5
+      md5: f8b1895ae6599c8d1f466809af43f710
+      size: 132764851
+    - path: src/data/replica.py
+      hash: md5
+      md5: c1da641fd46eb755a4bd388601beb4c6
+      size: 1621
+    - path: src/features/embeddings_beto.py
+      hash: md5
+      md5: 76c449eb32ef78152adae76e14dd4f91
+      size: 5740
+    - path: src/features/preprocesamiento_articulo.py
+      hash: md5
+      md5: 589f2bd3df8db86365c3853b01e630d9
+      size: 2381
+    params:
+      params.yaml:
+        replica.beto:
+          modelo: dccuchile/bert-base-spanish-wwm-uncased
+          max_tokens: 150
+          lote: 16
+          guardar_float16: true
+          carpeta_embeddings: data/processed/embeddings_beto
+        replica.preprocesamiento:
+          quitar_stopwords: true
+          stemming: false
+          idioma: spanish
+        replica.uso: replica
+    outs:
+    - path: data/processed/embeddings_beto/con_limpieza.npz
+      hash: md5
+      md5: ad1976478714edc56060037564c92298
+      size: 738769500
+    - path: data/processed/embeddings_beto/con_limpieza_info.json
+      hash: md5
+      md5: 7017f35813305777a4f29df1e5cf33f9
+      size: 212
+  beto_lstm@sin_limpieza:
+    cmd: python -m src.models.beto_lstm_articulo --variante sin_limpieza
+    deps:
+    - path: data/processed/embeddings_beto/sin_limpieza.npz
+      hash: md5
+      md5: e5a08bb08b3926c9a31501b1b12482b6
+      size: 751103196
+    - path: src/evaluation/metricas.py
+      hash: md5
+      md5: 2b7d0bd5e4be1bd0b66855ea0439fe81
+      size: 2013
+    - path: src/models/beto_lstm_articulo.py
+      hash: md5
+      md5: 1371bc7b62bbe9ab264179787824e1ea
+      size: 6386
+    params:
+      params.yaml:
+        replica.lstm:
+          test_size: 0.1
+          unidades: 8
+          dropout: 0.5
+          epocas: 25
+          batch_size: 32
+          lr: 0.001
+        replica.semillas:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+    outs:
+    - path: reports/replica/beto_lstm_sin_limpieza.json
+      hash: md5
+      md5: d1a21163e642557a0b8e5d6a9c582b70
+      size: 2775
+    - path: reports/replica/predicciones_beto_lstm_sin_limpieza.csv
+      hash: md5
+      md5: 92b67bb1f0309ab137c0fff799d639b2
+      size: 47493
+  beto_lstm@con_limpieza:
+    cmd: python -m src.models.beto_lstm_articulo --variante con_limpieza
+    deps:
+    - path: data/processed/embeddings_beto/con_limpieza.npz
+      hash: md5
+      md5: ad1976478714edc56060037564c92298
+      size: 738769500
+    - path: src/evaluation/metricas.py
+      hash: md5
+      md5: 2b7d0bd5e4be1bd0b66855ea0439fe81
+      size: 2013
+    - path: src/models/beto_lstm_articulo.py
+      hash: md5
+      md5: 1371bc7b62bbe9ab264179787824e1ea
+      size: 6386
+    params:
+      params.yaml:
+        replica.lstm:
+          test_size: 0.1
+          unidades: 8
+          dropout: 0.5
+          epocas: 25
+          batch_size: 32
+          lr: 0.001
+        replica.semillas:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+    outs:
+    - path: reports/replica/beto_lstm_con_limpieza.json
+      hash: md5
+      md5: 1315dbe2d3e1fc2fd6fb3c41915f04e0
+      size: 2775
+    - path: reports/replica/predicciones_beto_lstm_con_limpieza.csv
+      hash: md5
+      md5: dfcba6730fccd4328ba842d6da123948
+      size: 46879
+  comparar_limpieza:
+    cmd: python -m src.evaluation.comparar_limpieza
+    deps:
+    - path: reports/replica/beto_lstm_con_limpieza.json
+      hash: md5
+      md5: 1315dbe2d3e1fc2fd6fb3c41915f04e0
+      size: 2775
+    - path: reports/replica/beto_lstm_sin_limpieza.json
+      hash: md5
+      md5: d1a21163e642557a0b8e5d6a9c582b70
+      size: 2775
+    - path: reports/replica/rf_con_limpieza.json
+      hash: md5
+      md5: dffe7304de96e2328da2cfc5b048375e
+      size: 2787
+    - path: reports/replica/rf_sin_limpieza.json
+      hash: md5
+      md5: 3176910ccc4e9235698685e3c1fc596a
+      size: 2802
+    - path: src/evaluation/comparar_limpieza.py
+      hash: md5
+      md5: 5491c4bef37dc469d2d4bd48abcd158c
+      size: 3780
+    outs:
+    - path: reports/replica/comparacion_limpieza.json
+      hash: md5
+      md5: de6f445ed6f50f80ea2f1f62acc82631
+      size: 674
+    - path: reports/replica/comparacion_limpieza.md
+      hash: md5
+      md5: 422a434d69bac540c1166064f7b8e21a
+      size: 1070
