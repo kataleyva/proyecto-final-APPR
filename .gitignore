@@ -9,6 +9,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Datos y modelos: los versiona DVC
+data/processed/embeddings_beto/
 
 # Credenciales (nunca se suben)
 .env

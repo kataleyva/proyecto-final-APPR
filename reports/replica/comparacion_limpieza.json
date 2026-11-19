@@ -1,0 +1,24 @@
+{
+  "rf_tfidf": {
+    "accuracy_sin_limpieza": 0.7755,
+    "std_sin_limpieza": 0.0168,
+    "accuracy_con_limpieza": 0.7676,
+    "std_con_limpieza": 0.0227,
+    "diferencia": -0.0079,
+    "p_valor_welch": 0.5506,
+    "f1_sin_limpieza": 0.7833,
+    "f1_con_limpieza": 0.7709,
+    "test_repetidos_en_train_sin_limpieza": 66
+  },
+  "beto_lstm": {
+    "accuracy_sin_limpieza": 0.7612,
+    "std_sin_limpieza": 0.0269,
+    "accuracy_con_limpieza": 0.7024,
+    "std_con_limpieza": 0.0202,
+    "diferencia": -0.0589,
+    "p_valor_welch": 0.0052,
+    "f1_sin_limpieza": 0.7549,
+    "f1_con_limpieza": 0.7068,
+    "test_repetidos_en_train_sin_limpieza": 40
+  }
+}

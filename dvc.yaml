@@ -11,3 +11,77 @@ stages:
     metrics:
       - reports/limpieza_reporte.json:
           cache: false
+
+  rf_articulo:
+    foreach: ${replica.variantes}
+    do:
+      cmd: python -m src.models.rf_articulo --variante ${key}
+      deps:
+        - src/models/rf_articulo.py
+        - src/features/preprocesamiento_articulo.py
+        - src/data/replica.py
+        - src/evaluation/metricas.py
+        - ${item.archivo}
+      params:
+        - replica.uso
+        - replica.semillas
+        - replica.preprocesamiento
+        - replica.rf
+      outs:
+        - reports/replica/predicciones_rf_${key}.csv:
+            cache: false
+      metrics:
+        - reports/replica/rf_${key}.json:
+            cache: false
+
+  embeddings_beto:
+    foreach: ${replica.variantes}
+    do:
+      cmd: python -m src.features.embeddings_beto --variante ${key}
+      deps:
+        - src/features/embeddings_beto.py
+        - src/features/preprocesamiento_articulo.py
+        - src/data/replica.py
+        - ${item.archivo}
+      params:
+        - replica.uso
+        - replica.preprocesamiento
+        - replica.beto
+      outs:
+        - data/processed/embeddings_beto/${key}.npz:
+            cache: false
+        - data/processed/embeddings_beto/${key}_info.json:
+            cache: false
+
+  beto_lstm:
+    foreach: ${replica.variantes}
+    do:
+      cmd: python -m src.models.beto_lstm_articulo --variante ${key}
+      deps:
+        - src/models/beto_lstm_articulo.py
+        - src/evaluation/metricas.py
+        - data/processed/embeddings_beto/${key}.npz
+      params:
+        - replica.semillas
+        - replica.lstm
+      outs:
+        - reports/replica/predicciones_beto_lstm_${key}.csv:
+            cache: false
+      metrics:
+        - reports/replica/beto_lstm_${key}.json:
+            cache: false
+
+  comparar_limpieza:
+    cmd: python -m src.evaluation.comparar_limpieza
+    deps:
+      - src/evaluation/comparar_limpieza.py
+      - reports/replica/rf_sin_limpieza.json
+      - reports/replica/rf_con_limpieza.json
+      - reports/replica/beto_lstm_sin_limpieza.json
+      - reports/replica/beto_lstm_con_limpieza.json
+    outs:
+      - reports/replica/comparacion_limpieza.md:
+          cache: false
+    metrics:
+      - reports/replica/comparacion_limpieza.json:
+          cache: false
